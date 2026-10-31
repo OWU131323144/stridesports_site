@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
+  <title>Products | STRIDE SPORTS</title>
+
+  <meta
+    name="description"
+    content="STRIDE SPORTSの商品一覧。ランニングシューズ、スポーツウェア、トレーニンググッズをご紹介します。"
+  />
+
+  <link href="./css/global.css" rel="stylesheet" />
+
+  <style>
+    /* =========================
+       全体共通
+    ========================= */
+    :root {
+      --navy: #142a43;
+      --green: #087c70;
+      --orange: #ff713d;
+      --background: #f7f9fb;
+      --text: #172b40;
+      --muted: #536579;
+      --border: #dce4ec;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 5px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* =========================
+       ヘッダー
+    ========================= */
+    .header {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .header-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-size: 21px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      background: var(--navy);
+      color: #70e8d3;
+      font-style: italic;
+    }
+
+    .site-menu ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .site-menu a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .site-menu a:hover,
+    .site-menu a[aria-current="page"] {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    /* =========================
+       ページトップ
+    ========================= */
+    .products-hero {
+      width: min(1160px, calc(100% - 48px));
+      margin: 12px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      overflow: hidden;
+      border-radius: 4px;
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .page-title {
+      align-self: center;
+      padding: 48px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: #70e8d3;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+    }
+
+    .page-title h1 {
+      margin: 0 0 12px;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.4;
+    }
+
+    .page-title .subtitle {
+      margin: 0;
+      color: #d7e3ed;
+      font-size: 14px;
+    }
+
+    .hero-photo {
+      min-width: 0;
+      min-height: 340px;
+      background: #203c58;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: cover;
+      object-position: center;
+      color: #fff;
+    }
+
+    .breadcrumb {
+      width: min(1060px, calc(100% - 48px));
+      margin: 24px auto;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .breadcrumb a {
+      text-underline-offset: 4px;
+    }
+
+    /* =========================
+       セクション共通
+    ========================= */
+    .section {
+      width: min(1060px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 54px 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-title {
+      margin-bottom: 26px;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 28px;
+      letter-spacing: 0.04em;
+    }
+
+    .section-title p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section-description {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    /* =========================
+       カテゴリーメニュー
+    ========================= */
+    .category-menu ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .category-menu a {
+      display: inline-block;
+      padding: 10px 22px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .category-menu a:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* =========================
+       商品カード
+    ========================= */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    .product-visual {
+      position: relative;
+      background: #edf2f6;
+    }
+
+    .product-visual img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 1;
+      padding: 3px 10px;
+      background: #fff;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .card-text {
+      padding: 22px;
+    }
+
+    .menu-en {
+      margin: 0 0 4px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .menu-ja {
+      margin: 0 0 12px;
+      font-size: 17px;
+    }
+
+    .product-description {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .price {
+      margin: 0;
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .price span {
+      margin-left: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    /* =========================
+       商品のご案内
+    ========================= */
+    .information-list {
+      max-width: 760px;
+      margin: 0 auto;
+      padding-left: 24px;
+      font-size: 14px;
+    }
+
+    .information-list li + li {
+      margin-top: 12px;
+    }
+
+    /* =========================
+       ボタン
+    ========================= */
+    .flat-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 28px;
+      border: 1px solid var(--navy);
+      border-radius: 4px;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .flat-button:hover {
+      background: #274b70;
+    }
+
+    .button-row {
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    /* =========================
+       お問い合わせ
+    ========================= */
+    .contact-section {
+      width: min(1060px, calc(100% - 48px));
+      margin: 0 auto 64px;
+      padding: 44px 24px;
+      border-radius: 4px;
+      background: #e9f1f5;
+    }
+
+    /* =========================
+       フッター
+    ========================= */
+    .footer {
+      padding: 28px 24px;
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    /* =========================
+       スマートフォン
+    ========================= */
+    @media (max-width: 760px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .site-menu ul {
+        gap: 18px;
+      }
+
+      .products-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .page-title {
+        padding: 36px 26px;
+      }
+
+      .hero-photo {
+        min-height: 0;
+      }
+
+      .hero-photo img {
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+
+      .section-title h2 {
+        font-size: 25px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-menu a {
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =========================
+       ヘッダー
+  ========================= -->
+  <header class="header">
+    <a class="header-logo" href="index.html">
+      <span class="logo-mark" aria-hidden="true">S</span>
+      STRIDE SPORTS
+    </a>
+
+    <nav class="site-menu" aria-label="メインメニュー">
+      <ul>
+        <li>
+          <a href="about.html">About</a>
+        </li>
+
+        <li>
+          <a href="menu.html" aria-current="page">Products</a>
+        </li>
+
+        <li>
+          <a href="access.html">Access</a>
+        </li>
+
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================
+         ページトップ
+         商品一覧のメイン画像：images/8.png
+    ========================= -->
+    <section
+      class="products-hero"
+      aria-labelledby="page-title"
+    >
+      <div class="page-title">
+        <p class="eyebrow">GEAR UP FOR YOUR NEXT STEP.</p>
+
+        <h1 id="page-title">Products</h1>
+
+        <p class="subtitle">
+          あなたの挑戦を支える、スポーツウェアとシューズ。
+        </p>
+      </div>
+
+      <div class="hero-photo">
+        <img
+          src="./images/8.png"
+          alt="スポーツウェアやトレーニンググッズ"
+          width="800"
+          height="600"
+          fetchpriority="high"
+        />
+      </div>
+    </section>
+
+    <!-- パンくずリスト -->
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="index.html">Home</a>
+      /
+      <span aria-current="page">Products</span>
+    </nav>
+
+    <!-- =========================
+         商品一覧の紹介
+    ========================= -->
+    <section
+      class="section"
+      aria-labelledby="collection-title"
+    >
+      <div class="section-title">
+        <h2 id="collection-title">Our Collection</h2>
+        <p>商品一覧</p>
+      </div>
+
+      <p class="section-description">
+        ランニングから、毎日のトレーニングまで。<br />
+        STRIDE SPORTSでは、スポーツを楽しむための<br />
+        シューズ、ウェア、グッズをご紹介しています。<br /><br />
+        自分の目的やスタイルに合わせて、<br />
+        お気に入りのアイテムをお選びください。
+      </p>
+
+      <nav class="category-menu" aria-label="商品カテゴリー">
+        <ul>
+          <li>
+            <a href="#shoes">シューズ</a>
+          </li>
+
+          <li>
+            <a href="#wear">スポーツウェア</a>
+          </li>
+
+          <li>
+            <a href="#goods">スポーツグッズ</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- =========================
+         シューズ
+    ========================= -->
+    <section
+      class="section"
+      id="shoes"
+      aria-labelledby="shoes-title"
+    >
+      <div class="section-title">
+        <h2 id="shoes-title">Shoes</h2>
+        <p>シューズ</p>
+      </div>
+
+      <p class="section-description">
+        日々のランニングや運動に。<br />
+        足に合った一足を見つけて、次の一歩へ。
+      </p>
+
+      <div class="product-grid">
+        <!-- ランニングシューズ：images/2.png -->
+        <article class="product-card">
+          <div class="product-visual">
+            <span class="product-tag">RUNNING</span>
+
+            <img
+              src="./images/2.png"
+              alt="ランニングシューズ"
+              width="800"
+              height="600"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="card-text">
+            <p class="menu-en">STRIDE RUNNER</p>
+
+            <h3 class="menu-ja">
+              ランニングシューズ
+            </h3>
+
+            <p class="product-description">
+              ジョギングや日々の運動に取り入れたい、
+              ランニングシューズ。
+            </p>
+
+            <p class="price">
+              ¥12,800<span>（税込）</span>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         スポーツウェア
+    ========================= -->
+    <section
+      class="section"
+      id="wear"
+      aria-labelledby="wear-title"
+    >
+      <div class="section-title">
+        <h2 id="wear-title">Sportswear</h2>
+        <p>スポーツウェア</p>
+      </div>
+
+      <p class="section-description">
+        ジムでのトレーニングにも、屋外での運動にも。<br />
+        自分らしくスポーツを楽しむためのウェアを。
+      </p>
+
+      <div class="product-grid">
+        <!-- トレーニングTシャツ：images/3.png -->
+        <article class="product-card">
+          <div class="product-visual">
+            <span class="product-tag">TRAINING</span>
+
+            <img
+              src="./images/3.png"
+              alt="トレーニングTシャツ"
+              width="800"
+              height="600"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="card-text">
+            <p class="menu-en">ACTIVE TRAINING TEE</p>
+
+            <h3 class="menu-ja">
+              トレーニングTシャツ
+            </h3>
+
+            <p class="product-description">
+              毎日のトレーニングに合わせたい、
+              シンプルなデザインのTシャツ。
+            </p>
+
+            <p class="price">
+              ¥3,980<span>（税込）</span>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         スポーツグッズ
+    ========================= -->
+    <section
+      class="section"
+      id="goods"
+      aria-labelledby="goods-title"
+    >
+      <div class="section-title">
+        <h2 id="goods-title">Sports Goods</h2>
+        <p>スポーツグッズ</p>
+      </div>
+
+      <p class="section-description">
+        スポーツを楽しむ時間も、その行き帰りも。<br />
+        毎日の活動に取り入れたいアイテムをご紹介します。
+      </p>
+
+      <div class="product-grid">
+        <!-- バスケットボール：images/4.png -->
+        <article class="product-card">
+          <div class="product-visual">
+            <span class="product-tag">BASKETBALL</span>
+
+            <img
+              src="./images/4.png"
+              alt="バスケットボール"
+              width="800"
+              height="600"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="card-text">
+            <p class="menu-en">COURT BASKETBALL</p>
+
+            <h3 class="menu-ja">
+              バスケットボール
+            </h3>
+
+            <p class="product-description">
+              シュートやドリブルの練習、
+              仲間とのプレーに。
+            </p>
+
+            <p class="price">
+              ¥4,500<span>（税込）</span>
+            </p>
+          </div>
+        </article>
+
+        <!-- スポーツバッグ：images/5.png -->
+        <article class="product-card">
+          <div class="product-visual">
+            <span class="product-tag">BAG</span>
+
+            <img
+              src="./images/5.png"
+              alt="スポーツバッグ"
+              width="800"
+              height="600"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="card-text">
+            <p class="menu-en">DAILY SPORTS BAG</p>
+
+            <h3 class="menu-ja">
+              スポーツバッグ
+            </h3>
+
+            <p class="product-description">
+              ウェアやタオルなど、
+              スポーツに必要な持ち物をひとまとめに。
+            </p>
+
+            <p class="price">
+              ¥6,800<span>（税込）</span>
+            </p>
+          </div>
+        </article>
+
+        <!-- スポーツボトル：images/6.png -->
+        <article class="product-card">
+          <div class="product-visual">
+            <span class="product-tag">ACCESSORIES</span>
+
+            <img
+              src="./images/6.png"
+              alt="スポーツボトル"
+              width="800"
+              height="600"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="card-text">
+            <p class="menu-en">ACTIVE BOTTLE</p>
+
+            <h3 class="menu-ja">
+              スポーツボトル
+            </h3>
+
+            <p class="product-description">
+              トレーニングや屋外での運動時の、
+              こまめな水分補給に。
+            </p>
+
+            <p class="price">
+              ¥2,480<span>（税込）</span>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         商品について
+    ========================= -->
+    <section
+      class="section"
+      aria-labelledby="information-title"
+    >
+      <div class="section-title">
+        <h2 id="information-title">Information</h2>
+        <p>商品について</p>
+      </div>
+
+      <ul class="information-list">
+        <li>
+          表示価格はすべて税込価格です。
+        </li>
+
+        <li>
+          商品の在庫や取り扱い状況は、
+          お問い合わせください。
+        </li>
+
+        <li>
+          サイズ・カラーの展開については、
+          ご購入前にご確認ください。
+        </li>
+
+        <li>
+          掲載画像はイメージです。
+          実際の商品とは色合いなどが異なる場合があります。
+        </li>
+      </ul>
+    </section>
+
+    <!-- =========================
+         お問い合わせ
+    ========================= -->
+    <section
+      class="contact-section"
+      aria-labelledby="contact-title"
+    >
+      <div class="section-title">
+        <h2 id="contact-title">Contact</h2>
+        <p>お問い合わせ</p>
+      </div>
+
+      <p class="section-description">
+        商品の選び方やサイズ、在庫についてなど、<br />
+        お気軽にお問い合わせください。
+      </p>
+
+      <div class="button-row">
+        <a href="contact.html" class="flat-button">
+          商品について問い合わせる →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       フッター
+  ========================= -->
+  <footer class="footer">
+    <p>
+      <small>&copy; STRIDE SPORTS</small>
+    </p>
+  </footer>
+</body>
+</html>

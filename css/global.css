@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+/* =========================
+   共通カラー・フォント
+========================= */
+:root {
+  --navy: #142a43;
+  --green: #087c70;
+  --orange: #ff713d;
+
+  --background: #f7f9fb;
+  --text: #172b40;
+  --muted: #536579;
+  --border: #dce4ec;
+
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #dce4ec;
+  --light-green: #70e8d3;
+
+  --font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    sans-serif;
+
+  --regular-64px: normal 400 64px/1.6 var(--font-family);
+  --regular-48px: normal 400 48px/1.6 var(--font-family);
+  --regular-32px: normal 400 32px/1.6 var(--font-family);
+  --regular-24px: normal 400 24px/1.6 var(--font-family);
+  --regular-18px: normal 400 18px/1.6 var(--font-family);
+  --regular-16px: normal 400 16px/1.6 var(--font-family);
+  --regular-14px: normal 400 14px/1.6 var(--font-family);
+  --regular-12px: normal 400 12px/1.6 var(--font-family);
+
+  --bold-64px: normal 700 64px/1.6 var(--font-family);
+  --bold-48px: normal 700 48px/1.6 var(--font-family);
+  --bold-32px: normal 700 32px/1.6 var(--font-family);
+  --bold-24px: normal 700 24px/1.6 var(--font-family);
+  --bold-18px: normal 700 18px/1.6 var(--font-family);
+  --bold-16px: normal 700 16px/1.6 var(--font-family);
+  --bold-14px: normal 700 14px/1.6 var(--font-family);
+  --bold-12px: normal 700 12px/1.6 var(--font-family);
+}
+
+/* =========================
+   サイズの計算方法
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* =========================
+   ページ全体
+========================= */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   リンク
+========================= */
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+
+/* =========================
+   画像
+========================= */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================
+   入力欄・ボタン
+========================= */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* =========================
+   キーボード操作時の目印
+========================= */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
+/* =========================
+   動きを抑える設定への対応
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

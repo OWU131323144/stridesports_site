@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
+  <title>About | STRIDE SPORTS</title>
+
+  <meta
+    name="description"
+    content="STRIDE SPORTSについて。スポーツを楽しむ人の挑戦を支える、私たちの想いや商品選びへのこだわりをご紹介します。"
+  />
+
+  <link href="./css/global.css" rel="stylesheet" />
+
+  <style>
+    /* =========================
+       全体共通
+    ========================= */
+    :root {
+      --navy: #142a43;
+      --green: #087c70;
+      --orange: #ff713d;
+      --background: #f7f9fb;
+      --text: #172b40;
+      --muted: #536579;
+      --border: #dce4ec;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 5px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* =========================
+       ヘッダー
+    ========================= */
+    .header {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .header-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-size: 21px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      background: var(--navy);
+      color: #70e8d3;
+      font-style: italic;
+    }
+
+    .site-menu ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .site-menu a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .site-menu a:hover,
+    .site-menu a[aria-current="page"] {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    /* =========================
+       ページトップ
+    ========================= */
+    .about-hero {
+      width: min(1160px, calc(100% - 48px));
+      margin: 12px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      overflow: hidden;
+      border-radius: 4px;
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .page-title {
+      align-self: center;
+      padding: 48px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: #70e8d3;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+    }
+
+    .page-title h1 {
+      margin: 0 0 12px;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.4;
+    }
+
+    .page-title .subtitle {
+      margin: 0;
+      color: #d7e3ed;
+      font-size: 14px;
+    }
+
+    .hero-photo {
+      min-width: 0;
+      min-height: 340px;
+      background: #203c58;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: cover;
+      object-position: center;
+      color: #fff;
+    }
+
+    .breadcrumb {
+      width: min(1060px, calc(100% - 48px));
+      margin: 24px auto;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .breadcrumb a {
+      text-underline-offset: 4px;
+    }
+
+    /* =========================
+       セクション共通
+    ========================= */
+    .section {
+      width: min(1060px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 54px 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-title {
+      margin-bottom: 26px;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 28px;
+      letter-spacing: 0.04em;
+    }
+
+    .section-title p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section-description {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .section-description p {
+      margin: 0;
+    }
+
+    .section-description p + p {
+      margin-top: 24px;
+    }
+
+    .lead-message {
+      margin: 0 0 24px;
+      color: var(--navy);
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 800;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* =========================
+       コンセプト
+    ========================= */
+    .concept-box {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 36px;
+      border-left: 4px solid var(--green);
+      border-radius: 4px;
+      background: #e9f1f5;
+    }
+
+    /* =========================
+       こだわりのカード
+    ========================= */
+    .commitment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .commitment-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    .card-image {
+      background: #edf2f6;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .card-text {
+      padding: 24px;
+    }
+
+    .card-en {
+      margin: 0 0 6px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .card-text h3 {
+      margin: 0 0 14px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .card-description {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       ボタン
+    ========================= */
+    .flat-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 28px;
+      border: 1px solid var(--navy);
+      border-radius: 4px;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .flat-button:hover {
+      background: #274b70;
+    }
+
+    .flat-button.secondary {
+      background: transparent;
+      color: var(--navy);
+    }
+
+    .flat-button.secondary:hover {
+      background: #dce8ef;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    /* =========================
+       お問い合わせ
+    ========================= */
+    .contact-section {
+      width: min(1060px, calc(100% - 48px));
+      margin: 0 auto 64px;
+      padding: 44px 24px;
+      border-radius: 4px;
+      background: #e9f1f5;
+    }
+
+    /* =========================
+       フッター
+    ========================= */
+    .footer {
+      padding: 28px 24px;
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    /* =========================
+       スマートフォン
+    ========================= */
+    @media (max-width: 760px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .site-menu ul {
+        gap: 18px;
+      }
+
+      .about-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .page-title {
+        padding: 36px 26px;
+      }
+
+      .hero-photo {
+        min-height: 0;
+      }
+
+      .hero-photo img {
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+
+      .section-title h2 {
+        font-size: 25px;
+      }
+
+      .concept-box {
+        padding: 26px 22px;
+      }
+
+      .commitment-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =========================
+       ヘッダー
+  ========================= -->
+  <header class="header">
+    <a class="header-logo" href="index.html">
+      <span class="logo-mark" aria-hidden="true">S</span>
+      STRIDE SPORTS
+    </a>
+
+    <nav class="site-menu" aria-label="メインメニュー">
+      <ul>
+        <li>
+          <a href="about.html" aria-current="page">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="menu.html">Products</a>
+        </li>
+
+        <li>
+          <a href="access.html">Access</a>
+        </li>
+
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================
+         ページトップ
+         メイン画像：images/9.png
+    ========================= -->
+    <section
+      class="about-hero"
+      aria-labelledby="page-title"
+    >
+      <div class="page-title">
+        <p class="eyebrow">EVERY STEP COUNTS.</p>
+
+        <h1 id="page-title">About</h1>
+
+        <p class="subtitle">
+          STRIDE SPORTSについて
+        </p>
+      </div>
+
+      <div class="hero-photo">
+        <img
+          src="./images/9.png"
+          alt="スポーツウェアを着てトレーニングに取り組む男性"
+          width="800"
+          height="600"
+          fetchpriority="high"
+        />
+      </div>
+    </section>
+
+    <!-- パンくずリスト -->
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="index.html">Home</a>
+      /
+      <span aria-current="page">About</span>
+    </nav>
+
+    <!-- =========================
+         ショップ紹介
+    ========================= -->
+    <section
+      class="section"
+      aria-labelledby="about-title"
+    >
+      <div class="section-title">
+        <h2 id="about-title">About STRIDE</h2>
+        <p>私たちについて</p>
+      </div>
+
+      <p class="lead-message">
+        毎日のトレーニングを、<br />
+        もう一歩先へ。
+      </p>
+
+      <div class="section-description">
+        <p>
+          STRIDE SPORTSは、メンズスポーツウェアやシューズ、<br />
+          トレーニンググッズをそろえるスポーツショップです。
+        </p>
+
+        <p>
+          朝のランニング、仕事帰りのジム、<br />
+          休日に仲間と楽しむスポーツ。<br />
+          それぞれの時間に寄り添うアイテムをお届けします。
+        </p>
+
+        <p>
+          これから運動を始める人も、<br />
+          次の目標に向かって挑戦する人も。<br />
+          自分に合ったシューズとともに、一歩を踏み出してみませんか。
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================
+         コンセプト
+    ========================= -->
+    <section
+      class="section"
+      aria-labelledby="concept-title"
+    >
+      <div class="section-title">
+        <h2 id="concept-title">Our Concept</h2>
+        <p>私たちの想い</p>
+      </div>
+
+      <div class="concept-box">
+        <div class="section-description">
+          <p>
+            スポーツの楽しみ方は、人それぞれ。<br />
+            記録を目指すことも、体を動かして気分を変えることも、<br />
+            自分のペースで続けることも、大切な一歩です。
+          </p>
+
+          <p>
+            私たちは、誰かと比べるためではなく、<br />
+            自分らしくスポーツを楽しむための<br />
+            商品選びをお手伝いしたいと考えています。
+          </p>
+
+          <p>
+            「また走りたい」「今日も体を動かしたい」。<br />
+            そう思える毎日を、ウェアとシューズから支えていきます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         こだわり
+    ========================= -->
+    <section
+      class="section"
+      aria-labelledby="commitment-title"
+    >
+      <div class="section-title">
+        <h2 id="commitment-title">Our Commitment</h2>
+        <p>大切にしていること</p>
+      </div>
+
+      <div class="commitment-grid">
+        <!-- シューズ選び：images/10.png -->
+        <article class="commitment-card">
+          <div class="card-image">
+            <img
+              src="./images/10.png"
+              alt="ランニングシューズのサイズや履き心地を確かめる様子"
+              width="800"
+              height="600"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="card-text">
+            <p class="card-en">FIND YOUR FIT</p>
+
+            <h3>自分に合うものを選ぶ</h3>
+
+            <p class="card-description">
+              見た目だけでなく、サイズ感や使う場面も大切に。
+              目的や体に合ったアイテムを選ぶことが、
+              心地よく運動を楽しむ第一歩だと考えています。
+            </p>
+          </div>
+        </article>
+
+        <!-- スポーツウェア：images/11.png -->
+        <article class="commitment-card">
+          <div class="card-image">
+            <img
+              src="./images/11.png"
+              alt="トレーニングに使うスポーツウェア"
+              width="800"
+              height="600"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="card-text">
+            <p class="card-en">READY FOR EVERYDAY</p>
+
+            <h3>毎日に取り入れやすく</h3>
+
+            <p class="card-description">
+              特別な日だけでなく、日々の運動にも使いたくなるものを。
+              手持ちのアイテムと合わせやすいデザインや、
+              使い続けやすさを大切にしています。
+            </p>
+          </div>
+        </article>
+
+        <!-- スポーツを楽しむ様子：images/12.png -->
+        <article class="commitment-card">
+          <div class="card-image">
+            <img
+              src="./images/12.png"
+              alt="屋外でスポーツを楽しむ人たち"
+              width="800"
+              height="600"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="card-text">
+            <p class="card-en">ENJOY YOUR PACE</p>
+
+            <h3>楽しみながら続ける</h3>
+
+            <p class="card-description">
+              無理をせず、自分のペースで。
+              一人で取り組む時間も、仲間と楽しむ時間も、
+              スポーツが日常の楽しみになるような
+              アイテムをご紹介します。
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         お客様へのメッセージ
+    ========================= -->
+    <section
+      class="section"
+      aria-labelledby="message-title"
+    >
+      <div class="section-title">
+        <h2 id="message-title">Our Message</h2>
+        <p>お客様へ</p>
+      </div>
+
+      <div class="section-description">
+        <p>
+          新しいシューズを履いたとき。<br />
+          お気に入りのウェアに着替えたとき。<br />
+          いつもより少し、体を動かしたくなる。
+        </p>
+
+        <p>
+          STRIDE SPORTSは、<br />
+          そんなきっかけをお届けできるショップでありたいと考えています。
+        </p>
+
+        <p>
+          あなたの「やってみたい」を、次の一歩へ。<br />
+          自分らしく楽しめるアイテムを、ぜひ見つけてください。
+        </p>
+      </div>
+
+      <div class="button-row">
+        <a href="menu.html" class="flat-button">
+          商品一覧を見る →
+        </a>
+
+        <a href="access.html" class="flat-button secondary">
+          店舗へのアクセス
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================
+         お問い合わせ
+    ========================= -->
+    <section
+      class="contact-section"
+      aria-labelledby="contact-title"
+    >
+      <div class="section-title">
+        <h2 id="contact-title">Contact</h2>
+        <p>お問い合わせ</p>
+      </div>
+
+      <div class="section-description">
+        <p>
+          商品の選び方やサイズについてなど、<br />
+          ご不明な点がございましたら、お気軽にお問い合わせください。
+        </p>
+      </div>
+
+      <div class="button-row">
+        <a href="contact.html" class="flat-button">
+          お問い合わせはこちら →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       フッター
+  ========================= -->
+  <footer class="footer">
+    <p>
+      <small>&copy; STRIDE SPORTS</small>
+    </p>
+  </footer>
+</body>
+</html>
